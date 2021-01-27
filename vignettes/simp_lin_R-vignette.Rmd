@@ -1,0 +1,85 @@
+---
+title: "simp_lin_R-vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Description}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(HW1Mantautas)
+```
+
+
+It is often useful to use a linear regression command that is very quick and very simple. Using such a function might save you a lot of time doing a parallelized simulation study related to simple regression.
+
+This vignette would introduce how to use `sim_lin_R()` function and reach its output.
+
+We will start by covering what inputs this function expects. 
+
+## Basic usage
+
+`simp_lin_R()` has two arguments:
+
+* The first argument, `y` inputs the response variable of your choice. It must be a numeric vector of length more than 2. 
+
+* The second argument, `x` inputs the predictor variable of your choice. The input must be a numeric vector of length more than 2 and length must be equal to `y`.
+
+Here are a couple of examples of `sim_lin_R()` usage.
+
+```{r, eval=FALSE}
+predictor=rnorm(100)
+response=rnorm(100)
+simp_lin_R(y=response, x=predictor)
+```
+
+```{r, eval=FALSE}
+variable1=seq(0,100,length=50)
+variable2=seq(100,60, length=50)
+simp_lin_R(variable1, variable2)
+```
+
+## Output
+
+`sim_lin_R()` gives a list consisting of elements:
+
+* `$Coefficients` gives a vector of 2 elements, where the first element consists estimated coefficient of the intercept $\hat{\beta_0}$ and the second element consists estimated coefficient of the slope $\hat{\beta_1}$.
+
+* `$Fitted` gives vector of length equal to input vector $x$. It is calculated as $\hat{y}=\hat{\beta_0}+\hat{\beta_1}x$
+
+* `$MSE` gives a scalar value of calculated mean squared error.
+
+* `$Standard_Error` give a vector of 2 elements, where the first is estimated standard error of the intercept and the second is estimated standard error of the slope.
+
+* `$Residuals` gives vector of length equal to input vector $x$. It is calculated as $e=y-\hat{y}$.
+
+* `$95pct_conf` gives matrix of dimension 2x2. First row gives estimated $95\%$ confidence interval for $\beta_0$ and second row gives estimated $95\%$ confidence interval for $\beta_1$.
+
+An example of the output is below.
+
+```{r}
+predictor=rnorm(20)
+response=rnorm(20)
+linear_reg <- simp_lin_R(y=response, x=predictor)
+linear_reg$Coefficients
+linear_reg$Fitted
+linear_reg$MSE
+linear_reg$Standard_Error
+linear_reg$Residuals
+linear_reg$`95pct_conf`
+```
+
+Thus the one can use this output to produce simple linear regression illustrations.
+
+```{r}
+plot(x=predictor, y=response)
+lines(x=predictor, y=linear_reg$Fitted, col="red")
+```
