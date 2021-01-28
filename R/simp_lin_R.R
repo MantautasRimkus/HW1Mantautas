@@ -37,5 +37,5 @@ simp_lin_R <- function(y,x){
     stop("x and y does not have equal lengths")
   }
 
-  simp_lin_cpp(x, y)
+  simp_lin_cpp(y=y, x=x)
 }
