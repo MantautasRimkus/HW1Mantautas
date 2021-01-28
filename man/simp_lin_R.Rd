@@ -12,12 +12,19 @@ simp_lin_R(y, x)
 \item{x}{is numeric vector known as predictor. x length must be equal to y length}
 }
 \value{
-Returns regression coefficients, their corresponding standard errors and 95pct conﬁdence intervals, residuals, and predicted values as a list
+Returns regression coefficients, their corresponding standard errors and 95pct confidence intervals, residuals, and predicted values as a list
 }
 \description{
 Takes two numeric vectors and gives results of linear regression
 }
+\examples{
+simp_lin_R(seq(1:10), seq(10:1))
+simp_lin_R(rnorm(1000),rnorm(1000))
+
+}
 \author{
 Mantautas Rimkus, \email{mantauc@colostate.edu}
 }
+\keyword{linear}
+\keyword{regression}
 \keyword{simple}

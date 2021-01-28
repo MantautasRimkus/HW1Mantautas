@@ -5,10 +5,14 @@
 #' @param y is numeric vector known as response
 #' @param x is numeric vector known as predictor. x length must be equal to y length
 #'
-#' @return Returns regression coefficients, their corresponding standard errors and 95pct conﬁdence intervals, residuals, and predicted values as a list
+#' @return Returns regression coefficients, their corresponding standard errors and 95pct confidence intervals, residuals, and predicted values as a list
+#'
+#' @examples
+#' simp_lin_R(seq(1:10), seq(10:1))
+#' simp_lin_R(rnorm(1000),rnorm(1000))
 #'
 #' @author Mantautas Rimkus, \email{mantauc@@colostate.edu}
-#' @keywords simple
+#' @keywords simple linear regression
 #'
 #'
 #' @export
