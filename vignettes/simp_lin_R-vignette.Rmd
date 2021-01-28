@@ -15,11 +15,11 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(HW1Mantautas)
+library(Simplin)
 ```
 
 
-It is often useful to use a linear regression command that is very quick and very simple. Using such a function might save you a lot of time doing a parallelized simulation study related to simple regression.
+It is often useful to use a linear regression command that is very quick and very simple. Using such a function might save you a lot of time doing a paralleled simulation study related to simple regression.
 
 This vignette would introduce how to use `sim_lin_R()` function and reach its output.
 
