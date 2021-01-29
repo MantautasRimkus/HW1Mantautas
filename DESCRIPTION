@@ -7,7 +7,7 @@ License: GPLv3
 Maintainer: The package maintainer <mantauc@colostate.edu>
 Description: This package provides function simp_lin_R, which provides simple linear regression
 LazyData: true
-Depends: R (>= 4.0.0)
+Depends: R (>= 3.5.0)
 LinkingTo: Rcpp, RcppArmadillo
 Imports: Rcpp, RcppArmadillo
 Suggests:
